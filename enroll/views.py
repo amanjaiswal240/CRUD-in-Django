@@ -22,7 +22,7 @@ def delete_data(request,id):
     if request.method=='POST':
         pi=User.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/enroll')
+        return HttpResponseRedirect('/')
 
 def update_data(request,id):
     if request.method=='POST':
@@ -30,7 +30,7 @@ def update_data(request,id):
         fm=StudentRegistration(request.POST, instance=pi)
         if fm.is_valid():
             fm.save()
-            return HttpResponseRedirect('/enroll')
+            return HttpResponseRedirect('/')
     else:
         pi=User.objects.get(pk=id)
         fm=StudentRegistration(instance=pi)
